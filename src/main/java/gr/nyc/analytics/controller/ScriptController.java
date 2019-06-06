@@ -1,9 +1,6 @@
 package gr.nyc.analytics.controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,11 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ScriptController
 {
     @GetMapping("/analytics.js")
-    public ResponseEntity<Resource> serveFile() throws FileNotFoundException
+    public ResponseEntity<Resource> serveFile()
     {
-    	// TODO: add the resource file instead of my desktop
-        InputStreamResource resource = 
-        		new InputStreamResource(new FileInputStream("C:\\Users\\Anthony\\Desktop\\analytics.js"));
-        return ResponseEntity.ok().body(resource);
+    	Resource script = new ClassPathResource("static/analytics.js");
+        return ResponseEntity.ok().body(script);
     }
 }
