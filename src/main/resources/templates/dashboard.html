@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<title>NYC Analytics</title>
+    <body>
+        <h1>Welcome to NYC Analytics!</h1>
+        <p>
+			Thank you for registering! here is your script: <br>			
+			&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script&gt;<br>
+			&lt;script src="http://localhost:8080/analytics.js">&lt;/script&gt;<br>
+			&lt;script&gt;<br>
+				sendHit("<span th:text="${trackingId}"></span>");<br>
+			&lt;/script&gt;<br>
+        </p>
+    </body>
+</html>
