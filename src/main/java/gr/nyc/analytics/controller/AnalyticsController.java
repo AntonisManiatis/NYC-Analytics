@@ -1,4 +1,4 @@
-package gr.nyc.analytics.rest;
+package gr.nyc.analytics.controller;
 
 import java.util.ArrayList;
 import java.util.List;

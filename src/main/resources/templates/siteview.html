@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<title>NYC Analytics</title>
+    <body>
+        <h1>Here's all the hits on <span th:text="${websiteName}"></span></h1>
+        <table border="1">
+	        <tr>
+	            <th>Date</th>
+	            <th>IP</th>
+	        </tr>
+			<tr th:each="hit : ${hits}">
+				<td th:text="${hit.hitDate}"></td>
+				<td th:text="${hit.ip}"></td>
+			</tr>
+		</table>
+    </body>
+</html>

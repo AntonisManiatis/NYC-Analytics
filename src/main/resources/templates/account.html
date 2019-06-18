@@ -4,7 +4,7 @@
     <body>
         <h1>You have <span th:text="${sitesSize}"></span> registered sites</h1>
 		<p th:each="site : ${sites}" >
-			<a th:href="@{'/category/edit/' + ${site.trackingId}}"><span th:text=${site.siteName}></span></a>
+			<a th:href="@{'/site/view/' + ${site.trackingId}}"><span th:text=${site.siteName}></span></a>
 		</p>
     </body>
 </html>

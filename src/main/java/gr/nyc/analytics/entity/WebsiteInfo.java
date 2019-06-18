@@ -1,5 +1,6 @@
 package gr.nyc.analytics.entity;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -37,7 +39,8 @@ public class WebsiteInfo
     @JoinColumn(name = "accountId", insertable = false, updatable = false)
     private Account account;
 	
-	// TODO: OneToMany HitStatistics
+    @OneToMany(mappedBy = "websiteInfo")
+    private List<HitStatistics> hits;
 	
 	public WebsiteInfo()
 	{
@@ -89,5 +92,10 @@ public class WebsiteInfo
 	public void setWebsiteURL(String websiteURL)
 	{
 		this.websiteURL = websiteURL;
+	}
+
+	public List<HitStatistics> getHits()
+	{
+		return hits;
 	}
 }
