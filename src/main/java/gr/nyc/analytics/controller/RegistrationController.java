@@ -47,7 +47,7 @@ public class RegistrationController
 		}
 		else
 		{
-			accountRepo.save(account);
+			account = accountRepo.save(account);
 		}
 		
 		
@@ -55,7 +55,7 @@ public class RegistrationController
 		// Create a unique UUID for this site
 		// and persist to the database
 		WebsiteInfo storedInfo = websiteRepo.saveAndFlush(
-				new WebsiteInfo(registration.getAccountName(), registration.getWebsiteName(),
+				new WebsiteInfo(account.getAccountId(), registration.getWebsiteName(),
 						registration.getWebsiteUrl()));
 		
 		LOGGER.debug("Added new registration with trackingId {}", storedInfo.getTrackingId());

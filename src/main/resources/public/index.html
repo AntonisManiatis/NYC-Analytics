@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 <html>
-	<title>NYC Analytics</title>
+	<head>
+		<title>NYC Analytics</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	</head>
     <body>
         <h1>Welcome to NYC Analytics!</h1>
         <p>
@@ -7,8 +11,10 @@
         	<a href="register.html">Register Here</a><br>
         	Or you can check on your websites. Just type in your Account Name below.
         </p>
-        <form action="view" method="GET">
-        	<input type="text" name="accountName" required><br>
+        
+        <form action="/account/username" method="GET">
+        	<b>Account Name:</b><br>
+       		<input type="text" name="accountName" required><br>
         	<input type="submit">
         </form>
     </body>

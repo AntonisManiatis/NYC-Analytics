@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -23,13 +25,17 @@ public class WebsiteInfo
 	private UUID trackingId;
 	
 	@Column(nullable = false)
-	private String accountName;
+	private Long accountId;
 	
 	@Column(nullable = false)
 	private String websiteName;
 	
 	@Column(nullable = false)
 	private String websiteURL;
+	
+    @ManyToOne
+    @JoinColumn(name = "accountId", insertable = false, updatable = false)
+    private Account account;
 	
 	// TODO: OneToMany HitStatistics
 	
@@ -38,9 +44,9 @@ public class WebsiteInfo
 		// TODO Auto-generated constructor stub
 	}
 	
-	public WebsiteInfo(String accountName, String websiteName, String websiteURL)
+	public WebsiteInfo(Long accountId, String websiteName, String websiteURL)
 	{
-		this.accountName = accountName;
+		this.accountId = accountId;
 		this.websiteName = websiteName;
 		this.websiteURL = websiteURL;
 	}
@@ -55,14 +61,14 @@ public class WebsiteInfo
 		this.trackingId = trackingId;
 	}
 
-	public String getAccountName()
+	public Long getAccountId()
 	{
-		return accountName;
+		return accountId;
 	}
 	
-	public void setAccountName(String accountName)
+	public void setAccountName(Long accountId)
 	{
-		this.accountName = accountName;
+		this.accountId = accountId;
 	}
 	
 	public String getWebsiteName()

@@ -1,10 +1,13 @@
 package gr.nyc.analytics.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * For every registration made an account is created. Under one account you can register many
@@ -22,11 +25,17 @@ public class Account
 	@Column(nullable = false)
 	private String accountName;
 	
-	// TODO: OneToMany WebsiteInfo
+	@OneToMany(mappedBy = "account")
+	private List<WebsiteInfo> websites;
 	
 	public Account()
 	{
 		// Default constructor for Hibernate
+	}
+
+	public Long getAccountId()
+	{
+		return accountId;
 	}
 	
 	public Account(String accountName)
@@ -42,5 +51,10 @@ public class Account
 	public void setName(String accountName)
 	{
 		this.accountName = accountName;
+	}
+	
+	public List<WebsiteInfo> websites()
+	{
+		return websites;
 	}
 }
